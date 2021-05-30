@@ -27,15 +27,19 @@ class ColorPalette extends Component {
 
 	render() {
 		const { sliderValue, format } = this.state;
-		const { colors } = this.props.palette;
-		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} />);
+		const { colors, emoji, paletteName } = this.props.palette;
+		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} key={c.id}/>);
 
 		return (
 			<div className="ColorPalette">
 				<Navbar sliderValue={sliderValue} changeSlider={this.changeSlider} changeFormat={this.changeFormat}/>
-				{/* Navbar will go here... */}
 				<div className="ColorPalette-colors">{colorBoxes}</div>
-				{/* The Footer will go here... */}
+				<footer className="ColorPalette-footer">
+					{paletteName}
+					<span className="emoji">
+						{emoji}
+					</span>
+				</footer>
 			</div>
 		);
 	}
