@@ -8,23 +8,31 @@ class ColorPalette extends Component {
 		super(props);
 
 		this.state = {
-			sliderValue: 500
+			sliderValue: 500,
+			format: 'hex'
 		};
 		this.changeSlider = this.changeSlider.bind(this);
+		this.changeFormat = this.changeFormat.bind(this);
 	}
 
 	changeSlider(sliderValue) {
 		this.setState({ sliderValue });
 	}
 
+	changeFormat(value) {
+		this.setState({
+			format: value
+		})
+	}
+
 	render() {
-		const { sliderValue } = this.state;
+		const { sliderValue, format } = this.state;
 		const { colors } = this.props.palette;
-		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c.hex} name={c.name} />);
+		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} />);
 
 		return (
 			<div className="ColorPalette">
-				<Navbar sliderValue={sliderValue} changeSlider={this.changeSlider} />
+				<Navbar sliderValue={sliderValue} changeSlider={this.changeSlider} changeFormat={this.changeFormat}/>
 				{/* Navbar will go here... */}
 				<div className="ColorPalette-colors">{colorBoxes}</div>
 				{/* The Footer will go here... */}
