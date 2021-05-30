@@ -21,14 +21,13 @@ class ColorPalette extends Component {
 	render() {
 		const { sliderValue } = this.state;
 		const { colors } = this.props.palette;
-		const colorBoxes = colors[sliderValue].map((c) => 
-			<ColorBox bgColor={c.hex} name={c.name} />
-		);
-		
+		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c.hex} name={c.name} />);
+
 		return (
 			<div className="ColorPalette">
-				<Slider min={100} max={900} step={100} 
-				defaultValue={sliderValue} onChange={this.changeSlider} />
+				<div className="Slider">
+					<Slider min={100} max={900} step={100} defaultValue={sliderValue} onChange={this.changeSlider} />
+				</div>
 				{/* Navbar will go here... */}
 				<div className="ColorPalette-colors">{colorBoxes}</div>
 				{/* The Footer will go here... */}
