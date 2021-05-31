@@ -14,27 +14,26 @@ class Navbar extends Component {
 		super(props);
 		this.state = { format: 'hex', open: false };
 		this.handleFormatChange = this.handleFormatChange.bind(this);
-        this.closeSnackbarMsg = this.closeSnackbarMsg.bind(this);
+		this.closeSnackbarMsg = this.closeSnackbarMsg.bind(this);
 	}
 
 	handleFormatChange(evt) {
 		this.setState({
 			format: evt.target.value,
-            open: true
+			open: true
 		});
 		this.props.changeFormat(evt.target.value);
-        
 	}
 
-    closeSnackbarMsg() {
-        this.setState({
-            open: false
-        })
-    }
+	closeSnackbarMsg() {
+		this.setState({
+			open: false
+		});
+	}
 
 	render() {
-		const { changeSlider, sliderValue } = this.props;
-		const { format } = this.state;
+		const { changeSlider, sliderValue, allPaletteColors } = this.props;
+		const { format, open } = this.state;
 		return (
 			<header className="Navbar">
 				<div className="logo">
@@ -42,12 +41,14 @@ class Navbar extends Component {
 						ReactColorPicker
 					</Link>
 				</div>
-				<div className="Slider-container">
-					<span>Level: {sliderValue}</span>
-					<div className="Slider">
-						<Slider min={100} max={900} step={100} defaultValue={sliderValue} onChange={changeSlider} />
+				{allPaletteColors && (
+					<div className="Slider-container">
+						<span>Level: {sliderValue}</span>
+						<div className="Slider">
+							<Slider min={100} max={900} step={100} defaultValue={sliderValue} onChange={changeSlider} />
+						</div>
 					</div>
-				</div>
+				)}
 				<div className="Color-format-selector">
 					<Select value={format} onChange={this.handleFormatChange}>
 						<MenuItem value="hex">HEX - #ffffff</MenuItem>
@@ -57,11 +58,11 @@ class Navbar extends Component {
 				</div>
 				<Snackbar
 					anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-					open={this.state.open}
+					open={open}
 					autoHideDuration={3000}
 					message={<span>Successfully Changed Format To {format.toUpperCase()}</span>}
-					ContentProps={{ "aria-describedby": 'message-id' }}
-                    onClose={this.closeSnackbarMsg}
+					ContentProps={{ 'aria-describedby': 'message-id' }}
+					onClose={this.closeSnackbarMsg}
 					action={[
 						<IconButton onClick={this.closeSnackbarMsg} color="inherit" key="close" aria-label="close">
 							<CloseIcon />
