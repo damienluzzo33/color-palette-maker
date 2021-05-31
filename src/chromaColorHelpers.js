@@ -16,7 +16,7 @@ function generateColorPalette(seedColors) {
 		for (let index in colorScale) {
 			newColorPalette.colors[levels[index]].push({
 				name: `${color.name} ${levels[index]}`,
-				id: `${color.name} ${levels[index]}`.toLowerCase().replace(/ /g, '-'),
+				id: `${color.name}`.toLowerCase().replace(/ /g, '-'),
 				hex: colorScale[index],
 				rgb: chroma(colorScale[index]).css(),
                 rgba: chroma(colorScale[index]).css().replace("rgb","rgba").replace(')', ',1.0)')

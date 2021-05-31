@@ -27,8 +27,8 @@ class ColorPalette extends Component {
 
 	render() {
 		const { sliderValue, format } = this.state;
-		const { colors, emoji, paletteName } = this.props.palette;
-		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} key={c.id}/>);
+		const { colors, emoji, paletteName, id } = this.props.palette;
+		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} key={c.id} extraUrl={`/palette/${id}/${c.id}`} />);
 
 		return (
 			<div className="ColorPalette">
