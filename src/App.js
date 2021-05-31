@@ -16,16 +16,17 @@ class App extends Component {
 		return (
 			<div>
 				<Switch>
-					<Route exact path="/" render={() => (
-						<AllColorPalettes allPalettes={seedColors}/>
-					)} />
+					<Route 
+						exact path="/" 
+						render={(routeProps) => (
+							<AllColorPalettes allPalettes={seedColors} {...routeProps} />
+						)} 
+					/>
 					<Route 
 						exact 
 						path="/palette/:id" 
-						render={(routeProps) => (
-							<ColorPalette palette={generateColorPalette(
-								this.findColorPalette(routeProps.match.params.id)
-							)} /> 
+						render={routeProps => (
+							<ColorPalette palette={generateColorPalette(this.findColorPalette(routeProps.match.params.id))} /> 
 						)}
 					/>
 				</Switch>
