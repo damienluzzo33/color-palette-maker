@@ -3,6 +3,18 @@ import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import './ColorPalette.css';
 import ColorPaletteFooter from './ColorPaletteFooter';
+import { withStyles } from '@material-ui/styles';
+
+const styles = {
+	ColorPalette: {
+		height: "100vh",
+		display: "flex",
+		flexDirection: "column"
+	},
+	paletteColors: {
+		height: "90%"
+	}
+}
 
 class ColorPalette extends Component {
 	constructor(props) {
@@ -29,16 +41,18 @@ class ColorPalette extends Component {
 	render() {
 		const { sliderValue, format } = this.state;
 		const { colors, emoji, paletteName, id } = this.props.palette;
+		const { ColorPalette, paletteColors } = this.props.classes;
+
 		const colorBoxes = colors[sliderValue].map((c) => <ColorBox bgColor={c[format]} name={c.name} key={c.id} extraUrl={`/palette/${id}/${c.id}`} showFullPalette={true} />);
 
 		return (
-			<div className="ColorPalette">
+			<div className={ColorPalette}>
 				<Navbar sliderValue={sliderValue} changeSlider={this.changeSlider} changeFormat={this.changeFormat} allPaletteColors={true} />
-				<div className="ColorPalette-colors">{colorBoxes}</div>
+				<div className={paletteColors}>{colorBoxes}</div>
 				<ColorPaletteFooter paletteName={paletteName} emoji={emoji} />
 			</div>
 		);
 	}
 }
 
-export default ColorPalette;
+export default withStyles(styles)(ColorPalette);

@@ -12,7 +12,7 @@
     height: 50%;
 } */
 
-.SingleColorPalette-go-back.ColorBox {
+/* .SingleColorPalette-go-back.ColorBox {
     background-color: black;
 }
 
@@ -36,7 +36,7 @@
     text-transform: uppercase;
     cursor: pointer;
     text-decoration: none;
-}
+} */
 
 /* .ColorBox:hover .ColorBox-copy-btn.dark-copy {
     color: black;
