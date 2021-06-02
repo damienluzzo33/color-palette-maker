@@ -59,16 +59,21 @@ const ColorBoxStyles = {
 		lineHeight: '30px',
 		textTransform: 'uppercase'
 	},
+	contentContainer: {
+		width: "100%",
+		padding: "0px",
+		margin: "0px"
+	},
 	colorBoxContent: {
 		position: "absolute",
-		padding: "10px",
-		width: "100%",
+		paddingLeft: "5px",
+		width: "90%",
 		left: "0px",
 		bottom: "0px",
 		color: "black",
 		letterSpacing: "1px",
 		textTransform: "uppercase",
-		fontSize: "12px"
+		fontSize: "14px"
 	},
 	copyOverlay: {
 		opacity: "0",

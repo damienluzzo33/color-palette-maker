@@ -3,7 +3,7 @@ const NavbarStyles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
-        height: "6vh",
+        height: "5vh",
         width: "100%"
     },
     logo: {
@@ -23,54 +23,26 @@ const NavbarStyles = {
     navbarSlider: {
         width: "350px",
         margin: "0 10px",
-        display: "inline-block"
+        display: "inline-block",
+		"& .rc-slider-rail": {
+			height: "8px"
+		},
+		"& .rc-slider-track": {
+			backgroundColor: "transparent"
+		},
+		"& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:hover, .rc-slider-handle:focus": {
+			backgroundColor: "green",
+			outline: "none",
+			border: "2px solid green",
+			boxShadow: "none",
+			width: "12px",
+			height: "12px",
+			top: "8px",
+		}
     },
-    ColorFormatSelector: {
+	ColorFormatSelector: {
         marginRight: "1rem",
         marginLeft: "auto"
-    }
-    ,
-    rcSliderTrack: {
-        backgroundColor: "transparent"
-    },
-    rcSliderRail: {
-        height: "8px"
-    },
-    rcSliderHandle: {
-        backgroundColor: "green",
-        outline: "none",
-        border: "2px solid green",
-        boxShadow: "none",
-        width: "12px",
-        height: "12px",
-        top: "8px",
-        "&:active": {
-            backgroundColor: "green",
-            outline: "none",
-            border: "2px solid green",
-            boxShadow: "none",
-            width: "12px",
-            height: "12px",
-            top: "8px"
-        },
-        "&:hover": {
-            backgroundColor: "green",
-            outline: "none",
-            border: "2px solid green",
-            boxShadow: "none",
-            width: "12px",
-            height: "12px",
-            top: "8px"
-        },
-        "&:focus": {
-            backgroundColor: "green",
-            outline: "none",
-            border: "2px solid green",
-            boxShadow: "none",
-            width: "12px",
-            height: "12px",
-            top: "8px"
-        }
     }
 }
 
