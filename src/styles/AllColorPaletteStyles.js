@@ -17,7 +17,18 @@ const AllColorPaletteStyles = {
         display: "flex",
         width: "100%",
         justifyContent: "space-between",
-        color: "white"
+        alignItems: "center",
+        color: "white",
+        "& a": {
+            color: "white",
+            textDecoration: "none",
+            border: "1px solid white",
+            padding: "0.25rem 0.75rem",
+            borderRadius: "15px",
+            background: "#0965bb",
+            fontWeight: "bold",
+            paddingBottom: "6px"
+        }
     },
 	palettes: {
         boxSizing: "border-box",
