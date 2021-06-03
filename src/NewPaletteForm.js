@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
-import { CssBaseline, AppBar, Toolbar, Divider, IconButton, colors } from '@material-ui/core/';
+import { CssBaseline, AppBar, Toolbar, Divider, IconButton } from '@material-ui/core/';
 import { Drawer, Button, Typography } from '@material-ui/core/';
 import { Menu, ChevronLeft } from '@material-ui/icons/';
 import { ChromePicker } from 'react-color';
+import DraggableColorBox from './DraggableColorBox';
 
 const drawerWidth = 400;
 
@@ -49,6 +50,7 @@ const styles = (theme) => ({
 	},
 	content: {
 		flexGrow: 1,
+        height: "calc(100vh - 64px)",
 		padding: theme.spacing(3),
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.sharp,
@@ -175,18 +177,9 @@ class NewPaletteForm extends Component {
 					})}
 				>
 					<div className={classes.drawerHeader} />
-                    <ul>
                     {newColors.map(c => (
-                        <li style={{
-                            backgroundColor: c, 
-                            color: "white", 
-                            textAlign: "center", 
-                            fontSize: "2rem"}}
-                        >
-                            {c}
-                        </li>
+                        <DraggableColorBox color={c} />
                     ))}
-                    </ul>
 				</main>
 			</div>
 		);
