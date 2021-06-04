@@ -82,12 +82,13 @@ class NewPaletteForm extends Component {
         this.handleColorUpdate = this.handleColorUpdate.bind(this);
         this.createNewColor = this.createNewColor.bind(this);
 		this.handleFormChange = this.handleFormChange.bind(this);
+		this.saveNewPalette = this.saveNewPalette.bind(this);
     }
 
 	componentDidMount() {
         ValidatorForm.addValidationRule('isColorNameUnique', (value) => 
             this.state.newColors.every(
-				({ colorName }) => colorName.toLowerCase() !== value.toLowerCase()
+				({ name }) => name.toLowerCase() !== value.toLowerCase()
 			)
         );
 		ValidatorForm.addValidationRule('isColorUnique', (value) => 
@@ -116,10 +117,9 @@ class NewPaletteForm extends Component {
     };
 
     createNewColor() {
-
 		const newColor = {
 			color: this.state.currentColor,
-			colorName: this.state.newPaletteName
+			name: this.state.newPaletteName
 		};
         this.setState({
             newColors: [...this.state.newColors, newColor],
@@ -133,6 +133,17 @@ class NewPaletteForm extends Component {
 		});
 	};
 
+	saveNewPalette() {
+		let newName = "New Test Palette"
+		const newColorPalette = {
+			paletteName: newName,
+			id: newName.toLowerCase().replace(/ /g, '-'),
+			colors: this.state.newColors
+		};
+		this.props.savePalette(newColorPalette);
+		this.props.history.push("/");
+	};
+
 	render() {
 		const { classes } = this.props;
 		const { open, currentColor, newColors, newPaletteName } = this.state;
@@ -142,6 +153,7 @@ class NewPaletteForm extends Component {
 				<CssBaseline />
 				<AppBar
 					position="fixed"
+					color="default"
 					className={clsx(classes.appBar, {
 						[classes.appBarShift]: open
 					})}
@@ -159,6 +171,13 @@ class NewPaletteForm extends Component {
 						<Typography variant="h6" noWrap>
 							Persistent drawer
 						</Typography>
+						<Button 
+							variant="contained"
+							color="primary"
+							onClick={this.saveNewPalette}
+						>
+							Save Palette
+						</Button>
 					</Toolbar>
 				</AppBar>
 				<Drawer
@@ -221,7 +240,7 @@ class NewPaletteForm extends Component {
 				>
 					<div className={classes.drawerHeader} />
                     {newColors.map(c => (
-                        <DraggableColorBox color={c.color} colorName={c.colorName} />
+                        <DraggableColorBox color={c.color} name={c.name} />
                     ))}
 				</main>
 			</div>

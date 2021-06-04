@@ -10,7 +10,7 @@ class AllColorPalettes extends Component {
     }
     
 	render() {
-		const { allPalettes, classes } = this.props;
+		const { palettes, classes } = this.props;
 		return (
 			<div className={classes.root}>
 				<div className={classes.container}>
@@ -21,7 +21,7 @@ class AllColorPalettes extends Component {
 						</Link>
 					</nav>
 					<div className={classes.palettes}>
-                        {allPalettes.map((p) => 
+                        {palettes.map((p) => 
                             <MiniPalette {...p} 
                                 miniClick={() => 
                                     this.goToColorPalette(p.id)
