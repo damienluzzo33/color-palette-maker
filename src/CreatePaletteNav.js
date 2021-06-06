@@ -19,7 +19,8 @@ const styles = (theme) => ({
 			duration: theme.transitions.duration.leavingScreen
 		}),
 		flexDirection: "row",
-		justifyContent: "space-between"
+		justifyContent: "space-between",
+		alignItems: "center"
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -35,26 +36,40 @@ const styles = (theme) => ({
 	hide: {
 		display: 'none'
 	},
-	navButtons: {}
+	navButtons: {
+		marginRight: "1rem",
+		"& a": {
+			textDecoration: "none"
+		}
+	},
+	btns: {
+		margin: "0 0.5rem"
+	}
 });
 
 class CreatePaletteNav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            newPaletteName: ""
+            newPaletteName: "",
+			showForm: false
         };
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.toggleShowForm = this.toggleShowForm.bind(this);
 	}
 
     handleFormChange(evt) {
 		this.setState({ [evt.target.name]: evt.target.value });
 	};
 
+	toggleShowForm() {
+		this.setState({ showForm: true });
+	};
+
 	render() {
         const { open, saveNewPalette, handleDrawerOpen, palettes } = this.props;
-		const { root, appBar, appBarShift, menuButton, hide, navButtons } = this.props.classes;
-        const { newPaletteName } = this.state;
+		const { root, appBar, appBarShift, menuButton, hide, navButtons, btns } = this.props.classes;
+        const { newPaletteName, showForm } = this.state;
 		return (
 			<div className={root}>
 				<CssBaseline />
@@ -80,17 +95,31 @@ class CreatePaletteNav extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={navButtons}>
-						<PaletteMetaDataForm 
-							palettes={palettes}
-							saveNewPalette={saveNewPalette}
-						/>
 						<Link to="/">
-							<Button variant="contained" color="secondary">
+							<Button
+								className={btns}
+								variant="contained" 
+								color="secondary"
+							>
 								Go Back
 							</Button>
 						</Link>
+						<Button
+							className={btns}
+							variant="contained" 
+							color="primary" 
+							onClick={this.toggleShowForm}
+						>
+							Save Palette
+						</Button>
 					</div>
 				</AppBar>
+				{showForm && (
+					<PaletteMetaDataForm 
+						palettes={palettes}
+						saveNewPalette={saveNewPalette}
+					/>
+				)}
 			</div>
 		);
 	}

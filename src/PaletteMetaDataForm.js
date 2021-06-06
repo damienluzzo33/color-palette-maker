@@ -12,7 +12,7 @@ class PaletteMetaDataForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            open: false,
+            open: true,
             newPaletteName: ""
         };
         this.handleFormChange = this.handleFormChange.bind(this);
@@ -43,43 +43,30 @@ class PaletteMetaDataForm extends Component {
         const { saveNewPalette } = this.props;
 
         return (
-            <div>
-                <Button 
-                    variant="outlined" 
-                    color="primary" 
-                    onClick={this.handleClickOpen}
+            <Dialog 
+                open={this.state.open} 
+                onClose={this.handleClose} aria-labelledby="form-dialog-title"
+            >
+                <DialogTitle id="form-dialog-title">
+                    Enter New Palette Name
+                </DialogTitle>
+                <ValidatorForm 
+                    onSubmit={() => saveNewPalette(newPaletteName)}
                 >
-                    Open form dialog
-                </Button>
-                <Dialog 
-                    open={this.state.open} 
-                    onClose={this.handleClose} aria-labelledby="form-dialog-title"
-                >
-                    <DialogTitle id="form-dialog-title">
-                        Subscribe
-                    </DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We will send updates occasionally.
+                            Please give your amazing new color palette a memorable and unique name!
                         </DialogContentText>
-                        <ValidatorForm 
-                            onSubmit={() => saveNewPalette(newPaletteName)}>
-							<TextValidator
-								label="Palette Name"
-								onChange={this.handleFormChange}
-								value={newPaletteName}
-								name="newPaletteName"
-								validators={[ 'required', 'isPaletteNameUnique' ]}
-								errorMessages={[ 'Enter a palette name', 'Name already used' ]}
-							/>
-							<Button 
-                                variant="contained" 
-                                color="primary" 
-                                type="submit"
-                            >
-								Save Palette
-							</Button>
-						</ValidatorForm>
+                            <TextValidator
+                                label="Palette Name"
+                                onChange={this.handleFormChange}
+                                value={newPaletteName}
+                                name="newPaletteName"
+                                fullWidth
+                                margin="normal"
+                                validators={[ 'required', 'isPaletteNameUnique' ]}
+                                errorMessages={[ 'Enter a palette name', 'Name already used' ]}
+                            />
                     </DialogContent>
                     <DialogActions>
                         <Button 
@@ -89,16 +76,17 @@ class PaletteMetaDataForm extends Component {
                             Cancel
                         </Button>
                         <Button 
-                            onClick={this.handleClose} 
-                            color="primary"
+                            variant="contained" 
+                            color="primary" 
+                            type="submit"
                         >
-                            Subscribe
+                            Save Palette
                         </Button>
                     </DialogActions>
-                </Dialog>
-            </div>
+                </ValidatorForm>
+            </Dialog>
         );
-    }
-}
+    };
+};
 
 export default PaletteMetaDataForm;
