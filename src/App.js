@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { generateColorPalette } from './chromaColorHelpers';
-
 import ColorPalette from './ColorPalette';
 import seedColors from './SEED_COLORS';
 import AllColorPalettes from './AllColorPalettes';
