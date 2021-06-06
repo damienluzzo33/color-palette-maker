@@ -56,6 +56,7 @@ class CreatePaletteNav extends Component {
         };
         this.handleFormChange = this.handleFormChange.bind(this);
         this.toggleShowForm = this.toggleShowForm.bind(this);
+        this.hideForm = this.hideForm.bind(this);
 	}
 
     handleFormChange(evt) {
@@ -64,6 +65,10 @@ class CreatePaletteNav extends Component {
 
 	toggleShowForm() {
 		this.setState({ showForm: true });
+	};
+
+	hideForm() {
+		this.setState({ showForm: false });
 	};
 
 	render() {
@@ -118,6 +123,7 @@ class CreatePaletteNav extends Component {
 					<PaletteMetaDataForm 
 						palettes={palettes}
 						saveNewPalette={saveNewPalette}
+						hideForm={this.hideForm}
 					/>
 				)}
 			</div>
