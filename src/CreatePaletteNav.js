@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import PaletteMetaDataForm from './PaletteMetaDataForm';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import { CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
 import { Button, Typography, IconButton } from '@material-ui/core/';
 import { Menu } from '@material-ui/icons/';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const drawerWidth = 400;
 
@@ -47,20 +47,12 @@ class CreatePaletteNav extends Component {
         this.handleFormChange = this.handleFormChange.bind(this);
 	}
 
-    componentDidMount() {
-        ValidatorForm.addValidationRule('isPaletteNameUnique', (value) => 
-            this.props.palettes.every(
-				({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-			)
-        );
-    }
-
     handleFormChange(evt) {
 		this.setState({ [evt.target.name]: evt.target.value });
 	};
 
 	render() {
-        const { open, saveNewPalette, handleDrawerOpen } = this.props;
+        const { open, saveNewPalette, handleDrawerOpen, palettes } = this.props;
 		const { root, appBar, appBarShift, menuButton, hide, navButtons } = this.props.classes;
         const { newPaletteName } = this.state;
 		return (
@@ -88,19 +80,10 @@ class CreatePaletteNav extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={navButtons}>
-						<ValidatorForm onSubmit={() => saveNewPalette(newPaletteName)}>
-							<TextValidator
-								label="Palette Name"
-								onChange={this.handleFormChange}
-								value={newPaletteName}
-								name="newPaletteName"
-								validators={[ 'required', 'isPaletteNameUnique' ]}
-								errorMessages={[ 'Enter a palette name', 'Name already used' ]}
-							/>
-							<Button variant="contained" color="primary" type="submit">
-								Save Palette
-							</Button>
-						</ValidatorForm>
+						<PaletteMetaDataForm 
+							palettes={palettes}
+							saveNewPalette={saveNewPalette}
+						/>
 						<Link to="/">
 							<Button variant="contained" color="secondary">
 								Go Back
