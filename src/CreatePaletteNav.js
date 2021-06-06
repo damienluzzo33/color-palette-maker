@@ -5,8 +5,9 @@ import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import { CssBaseline, AppBar, Toolbar } from '@material-ui/core/';
 import { Button, Typography, IconButton } from '@material-ui/core/';
-import { Menu } from '@material-ui/icons/';
 import CreatePaletteNavStyles from './styles/CreatePaletteNavStyles';
+import { mdiPalette } from '@mdi/js';
+import Icon from '@mdi/react';
 
 class CreatePaletteNav extends Component {
 	constructor(props) {
@@ -54,7 +55,10 @@ class CreatePaletteNav extends Component {
 							edge="start"
 							className={clsx(menuButton, open && hide)}
 						>
-							<Menu />
+							<Icon 
+								path={mdiPalette}
+								size={1}
+							/>
 						</IconButton>
 						<Typography variant="h6" noWrap>
 							Create A Palette

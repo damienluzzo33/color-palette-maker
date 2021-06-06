@@ -4,7 +4,8 @@ import ChromeColorPickerForm from './ChromeColorPickerForm';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import { Divider, Drawer, Button, Typography, IconButton } from '@material-ui/core/';
-import { ChevronLeft } from '@material-ui/icons/';
+import { mdiChevronLeftCircle } from '@mdi/js';
+import Icon from '@mdi/react';
 import DraggableColorList from './DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
 import NewPaletteFormStyles from './styles/NewPaletteFormStyles';
@@ -104,7 +105,10 @@ class NewPaletteForm extends Component {
 				>
 					<div className={classes.drawerHeader}>
 						<IconButton onClick={this.handleDrawerClose}>
-                            <ChevronLeft /> 
+							<Icon 
+								path={mdiChevronLeftCircle}
+								size={1}
+							/>
 						</IconButton>
 					</div>
                     <Divider />

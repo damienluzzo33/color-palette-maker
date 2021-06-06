@@ -6,7 +6,7 @@ const DraggableColorBoxStyles = {
 		display: 'inline-block',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-3.5px',
+		marginBottom: '-6px',
         color: "white",
         textAlign: "center",
         padding: "0.5rem",

@@ -23,7 +23,10 @@ const CreatePaletteNavStyles = (theme) => ({
 		})
 	},
 	menuButton: {
-		marginRight: theme.spacing(2)
+		marginRight: theme.spacing(2),
+		"& span": {
+			color: "rgba(0, 0, 0, 0.54)"
+		}
 	},
 	hide: {
 		display: 'none'
