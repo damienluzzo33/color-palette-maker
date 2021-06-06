@@ -14,10 +14,12 @@ class PaletteMetaDataForm extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            open: true,
+            stage: "form",
             newPaletteName: ""
         };
         this.handleFormChange = this.handleFormChange.bind(this);
+        this.showEmojiPicker = this.showEmojiPicker.bind(this);
+        this.handleSelection = this.handleSelection.bind(this);
     };
 
     componentDidMount() {
@@ -39,14 +41,47 @@ class PaletteMetaDataForm extends Component {
     handleClose = () => {
         this.setState({ open: false });
     };
+
+    showEmojiPicker() {
+        this.setState({
+            stage: "emoji"
+        });
+    };
+
+    handleSelection(emoji) {
+        const newColorPalette = {
+            paletteName: this.state.newPaletteName,
+			emoji: emoji.native
+        };
+        this.props.saveNewPalette(newColorPalette);
+    }
     
     render () {
-        const { newPaletteName, open } = this.state;
-        const { saveNewPalette, hideForm } = this.props;
+        const { newPaletteName } = this.state;
+        const { hideForm } = this.props;
 
         return (
+            <div>
+            <Dialog
+                open={this.state.stage === "emoji"}
+                onClose={hideForm}
+            >
+                <Picker 
+                    onSelect={this.handleSelection}
+                    title='Choose You Color Palette Emoji' 
+                    emoji='point_up'
+                    perLine='14'
+                    emojiSize='28px'
+                />
+                <Button 
+                    onClick={hideForm}
+                    color="primary"
+                >
+                    Cancel
+                </Button>
+            </Dialog>
             <Dialog 
-                open={open} 
+                open={this.state.stage === "form"}
                 onClose={hideForm} 
                 aria-labelledby="form-dialog-title"
             >
@@ -54,13 +89,12 @@ class PaletteMetaDataForm extends Component {
                     Enter New Palette Name
                 </DialogTitle>
                 <ValidatorForm 
-                    onSubmit={() => saveNewPalette(newPaletteName)}
+                    onSubmit={this.showEmojiPicker}
                 >
                     <DialogContent>
                         <DialogContentText>
                             Please give your amazing new color palette a memorable and unique name!
                         </DialogContentText>
-                        <Picker />
                         <TextValidator
                             label="Palette Name"
                             onChange={this.handleFormChange}
@@ -89,6 +123,7 @@ class PaletteMetaDataForm extends Component {
                     </DialogActions>
                 </ValidatorForm>
             </Dialog>
+            </div>
         );
     };
 };
