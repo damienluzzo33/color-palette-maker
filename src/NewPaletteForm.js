@@ -7,8 +7,8 @@ import { Divider, Drawer, Button, Typography, IconButton } from '@material-ui/co
 import { mdiChevronLeftCircle } from '@mdi/js';
 import Icon from '@mdi/react';
 import DraggableColorList from './DraggableColorList';
-import { arrayMove } from 'react-sortable-hoc';
 import NewPaletteFormStyles from './styles/NewPaletteFormStyles';
+import arrayMove from 'array-move';
 
 class NewPaletteForm extends Component {
 	static defaultProps = {
@@ -56,6 +56,7 @@ class NewPaletteForm extends Component {
 	saveNewPalette(newColorPalette) {
 		newColorPalette.id = newColorPalette.paletteName.toLowerCase().replace(/ /g, '-');
 		newColorPalette.colors = this.state.newColors;
+		newColorPalette.key = newColorPalette.id;
 		this.props.savePalette(newColorPalette);
 		this.props.history.push("/");
 	};

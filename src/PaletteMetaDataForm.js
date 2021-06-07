@@ -64,8 +64,8 @@ class PaletteMetaDataForm extends Component {
                     onSelect={this.handleSelection}
                     title='Choose You Color Palette Emoji' 
                     emoji='point_up'
-                    perLine='14'
-                    emojiSize='28px'
+                    perLine={14}
+                    emojiSize={28}
                 />
                 <Button 
                     onClick={hideForm}

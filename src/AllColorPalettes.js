@@ -22,10 +22,12 @@ class AllColorPalettes extends Component {
 					</nav>
 					<div className={classes.palettes}>
                         {palettes.map((p) => 
-                            <MiniPalette {...p} 
-                                miniClick={() => 
+                            <MiniPalette 
+								{...p}
+								miniClick={() => 
                                     this.goToColorPalette(p.id)
                                 }
+								key={p.id}
                             />
                         )}
                     </div>
