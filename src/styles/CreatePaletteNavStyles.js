@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from '../CONSTANTS';
+import { MediaQuery } from './MediaQueries';
 
 const drawerWidth = DRAWER_WIDTH;
 const CreatePaletteNavStyles = (theme) => ({
@@ -34,11 +35,20 @@ const CreatePaletteNavStyles = (theme) => ({
 	navButtons: {
 		marginRight: "1rem",
 		"& a": {
-			textDecoration: "none"
+			textDecoration: "none",
+			"& button": {
+				[MediaQuery.down("xs")]: {
+					marginRight: "0.25rem"
+				}
+			}
 		}
 	},
 	btns: {
-		margin: "0 0.5rem"
+		margin: "0 0.5rem",
+		[MediaQuery.down("xs")]: {
+			padding: "0.25rem",
+			margin: "0 0.25rem"
+		}
 	}
 });
 

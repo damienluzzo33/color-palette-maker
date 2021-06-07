@@ -1,3 +1,5 @@
+import { MediaQuery } from './MediaQueries';
+
 const DraggableColorBoxStyles = {
     root: {
         height:'25%',
@@ -15,7 +17,19 @@ const DraggableColorBoxStyles = {
                 color: "white",
                 transform: "scale(1.5)"
             }
-        }
+        },
+        [MediaQuery.down("lg")]: {
+            width: "25%",
+            height: "20%"
+		},
+        [MediaQuery.down("md")]: {
+            width: "50%",
+            height: "10%"
+		},
+        [MediaQuery.down("sm")]: {
+            width: "100%",
+            height: "5%"
+		}
     },
     boxContent: {
         position: "absolute",

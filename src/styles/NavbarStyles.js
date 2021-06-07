@@ -1,3 +1,5 @@
+import { MediaQuery } from './MediaQueries';
+
 const NavbarStyles = {
     Navbar: {
         display: "flex",
@@ -18,7 +20,10 @@ const NavbarStyles = {
         "& a": {
             textDecoration: "none",
             color: "black"
-        }
+        },
+        [MediaQuery.down("xs")]: {
+            display: props => props.allPaletteColors ? "none" : "flex"
+		}
     },
     navbarSlider: {
         width: "350px",
@@ -38,6 +43,9 @@ const NavbarStyles = {
 			width: "12px",
 			height: "12px",
 			top: "8px",
+		},
+        [MediaQuery.down("xs")]: {
+			width: "250px"
 		}
     },
 	ColorFormatSelector: {

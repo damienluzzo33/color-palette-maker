@@ -71,7 +71,7 @@ class CreatePaletteNav extends Component {
 								variant="contained" 
 								color="secondary"
 							>
-								Go Back
+								Back
 							</Button>
 						</Link>
 						<Button
@@ -80,7 +80,7 @@ class CreatePaletteNav extends Component {
 							color="primary" 
 							onClick={this.toggleShowForm}
 						>
-							Save Palette
+							Save
 						</Button>
 					</div>
 				</AppBar>

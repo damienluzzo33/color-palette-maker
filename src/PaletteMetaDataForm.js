@@ -62,9 +62,9 @@ class PaletteMetaDataForm extends Component {
             >
                 <Picker 
                     onSelect={this.handleSelection}
-                    title='Choose You Color Palette Emoji' 
+                    title='Pick Your Palette Emoji' 
                     emoji='point_up'
-                    perLine={14}
+                    perLine={10}
                     emojiSize={28}
                 />
                 <Button 
