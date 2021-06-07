@@ -1,3 +1,5 @@
+import { MediaQuery } from './MediaQueries';
+
 const ColorPaletteStyles = {
 	ColorPalette: {
 		height: '100vh',
@@ -14,7 +16,7 @@ const ColorPaletteStyles = {
 		display: 'inline-block',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-3.5px',
+		marginBottom: '-4px',
 		opacity: '1',
 		backgroundColor: 'black',
 		'& a': {
@@ -37,6 +39,18 @@ const ColorPaletteStyles = {
 			textTransform: 'uppercase',
 			cursor: 'pointer',
 			textDecoration: 'none'
+		},
+		[MediaQuery.down("lg")]: {
+			width: "25%",
+			height: '33.33%'
+		},
+		[MediaQuery.down("md")]: {
+			width: "50%",
+			height: '20%'
+		},
+		[MediaQuery.down("xs")]: {
+			width: "100%",
+			height: "10%"
 		}
 	}
 };

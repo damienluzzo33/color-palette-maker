@@ -1,4 +1,5 @@
 import chroma from 'chroma-js';
+import { MediaQuery } from './MediaQueries';
 
 const ColorBoxStyles = {
 	colorBox: {
@@ -8,10 +9,22 @@ const ColorBoxStyles = {
 		display: 'inline-block',
 		position: 'relative',
 		cursor: 'pointer',
-		marginBottom: '-3.5px',
+		marginBottom: '-4px',
 		"&:hover button": {
 			opacity: "1",
 			transition: "0.5s"
+		},
+		[MediaQuery.down("lg")]: {
+			width: "25%",
+			height: props => props.showFullPalette ? '20%' : '33.3333%'
+		},
+		[MediaQuery.down("md")]: {
+			width: "50%",
+			height: props => props.showFullPalette ? '10%' : '20%'
+		},
+		[MediaQuery.down("xs")]: {
+			width: "100%",
+			height: props => props.showFullPalette ? '5%' : '10%'
 		}
 	},
 	copyText: {
@@ -111,7 +124,10 @@ const ColorBoxStyles = {
 			textAlign: "center",
 			marginBottom: "0",
 			padding: "1rem",
-			textTransform: "uppercase"
+			textTransform: "uppercase",
+			[MediaQuery.down("xs")]: {
+				fontSize: '6rem'
+			}
 		},
 		"& p": {
 			fontSize: "2.5rem",
