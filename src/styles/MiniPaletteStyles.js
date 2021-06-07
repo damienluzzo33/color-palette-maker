@@ -52,9 +52,6 @@ const MiniPaletteStyles = {
         zIndex: 10,
         opacity: "0",
         transition: "all 0.4s ease-in-out"
-    },
-    delete: {
-
     }
 };
 

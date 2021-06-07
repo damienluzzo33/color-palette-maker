@@ -10,7 +10,7 @@ class AllColorPalettes extends Component {
     }
     
 	render() {
-		const { palettes, classes } = this.props;
+		const { palettes, classes, deletePalette } = this.props;
 		return (
 			<div className={classes.root}>
 				<div className={classes.container}>
@@ -28,6 +28,7 @@ class AllColorPalettes extends Component {
                                     this.goToColorPalette(p.id)
                                 }
 								key={p.id}
+								deletePalette={deletePalette}
                             />
                         )}
                     </div>
