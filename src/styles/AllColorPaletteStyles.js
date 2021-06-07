@@ -1,3 +1,5 @@
+import { MediaQuery } from './MediaQueries';
+
 const AllColorPaletteStyles = {
 	root: {
 		backgroundColor: 'blue',
@@ -11,7 +13,22 @@ const AllColorPaletteStyles = {
         display: "flex",
         alignItems: "flex-start",
         flexDirection: "column",
-        flexWrap: "wrap"
+        flexWrap: "wrap",
+        [MediaQuery.down("xl")]: {
+            width: "60%"
+        },
+        [MediaQuery.down("lg")]: {
+            width: "70%"
+        },
+        [MediaQuery.down("md")]: {
+            width: "70%"
+        },
+        [MediaQuery.down("sm")]: {
+            width: "75%"
+        },
+        [MediaQuery.down("xs")]: {
+            width: "85%"
+        }
     },
 	nav: {
         display: "flex",
@@ -28,6 +45,12 @@ const AllColorPaletteStyles = {
             background: "#0965bb",
             fontWeight: "bold",
             paddingBottom: "6px"
+        },
+        [MediaQuery.down("xs")]: {
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            marginBottom: "20px"
         }
     },
 	palettes: {
@@ -35,7 +58,19 @@ const AllColorPaletteStyles = {
         width: "100%",
         display: "grid",
         gridTemplateColumns: "repeat(3,30%)",
-        gridGap: "5%"
+        gridGap: "2.5rem 2.5rem",
+        [MediaQuery.down("lg")]: {
+            gridTemplateColumns: "repeat(3,30%)"
+        },
+        [MediaQuery.down("md")]: {
+            gridTemplateColumns: "repeat(2,46.5%)",
+            gridGap: "2rem 2rem"
+        },
+        [MediaQuery.down("xs")]: {
+            gridTemplateColumns: "repeat(1, 87%)",
+            gridGap: "1rem 0rem",
+            justifyContent: "center"
+        }
     }
 };
 
