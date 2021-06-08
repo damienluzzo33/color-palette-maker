@@ -1,12 +1,18 @@
 import { MediaQuery } from './MediaQueries';
+import svgBackground from './svgBackground.svg';
 
 const AllColorPaletteStyles = {
 	root: {
-		backgroundColor: 'blue',
-        height: "100vh",
+		height: "100vh",
         display: "flex",
         alignItems: "flex-start",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: "#1173cb",
+        /* background by SVGBackgrounds.com */
+        backgroundImage: `url(${svgBackground})`,
+        // backgroundAttachment: "local, scroll",
+        backgroundSize: "cover",
+        overflow: "scroll"
 	},
 	container: {
         width: "50%",
@@ -28,6 +34,12 @@ const AllColorPaletteStyles = {
         },
         [MediaQuery.down("xs")]: {
             width: "85%"
+        },
+        [MediaQuery.down("xs")]: {
+            width: "85%"
+        },
+        [MediaQuery.down("xs")]: {
+            width: "100%"
         }
     },
 	nav: {
@@ -37,20 +49,39 @@ const AllColorPaletteStyles = {
         alignItems: "center",
         color: "white",
         "& a": {
-            color: "white",
+            color: "#1173cb",
             textDecoration: "none",
             border: "1px solid white",
             padding: "0.25rem 0.75rem",
             borderRadius: "15px",
-            background: "#0965bb",
+            background: "white",
             fontWeight: "bold",
-            paddingBottom: "6px"
+            paddingBottom: "6px",
+            [MediaQuery.down("xs")]: {
+                padding: "0",
+                border: "none",
+                background: "none",
+                color: "white"
+            },
+            "& span": {
+                [MediaQuery.down("xs")]: {
+                    display: "none"
+                }
+            },
+            "& svg": {
+                [MediaQuery.up("xs")]: {
+                    display: "none"
+                },
+                [MediaQuery.down("cell")]: {
+                    transform: "scale(0.8)"
+                }
+            }
         },
         [MediaQuery.down("xs")]: {
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            marginBottom: "20px"
+            justifyContent: "space-around"
+        },
+        [MediaQuery.up("lg")]: {
+            width: "98%"
         }
     },
 	palettes: {
@@ -63,13 +94,24 @@ const AllColorPaletteStyles = {
             gridTemplateColumns: "repeat(3,30%)"
         },
         [MediaQuery.down("md")]: {
-            gridTemplateColumns: "repeat(2,46.5%)",
+            gridTemplateColumns: "repeat(2,47.5%)",
             gridGap: "2rem 2rem"
         },
         [MediaQuery.down("xs")]: {
             gridTemplateColumns: "repeat(1, 87%)",
             gridGap: "1rem 0rem",
             justifyContent: "center"
+        },
+        [MediaQuery.down("cell")]: {
+            gridTemplateColumns: "repeat(1, 100%)",
+            gridGap: "0.5rem 0rem",
+            justifyContent: "center"
+        }
+    },
+    title: {
+        fontSize: "2rem",
+        [MediaQuery.down("cell")]: {
+            fontSize: "1.75rem"
         }
     }
 };

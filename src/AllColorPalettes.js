@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalettePreview';
+import Icon from '@mdi/react';
+import { mdiPlusCircle } from '@mdi/js';
 import AllColorPaletteStyles from './styles/AllColorPaletteStyles';
 
 class AllColorPalettes extends Component {
@@ -15,9 +17,16 @@ class AllColorPalettes extends Component {
 			<div className={classes.root}>
 				<div className={classes.container}>
 					<nav className={classes.nav}>
-						<h1>ReactColorPicker</h1>
+						<h1 className={classes.title}>ReactColorPicker</h1>
 						<Link to="/palette/new">
-							Create Palette
+							<span className={classes.createReg}>
+								Create Palette
+							</span>
+							<Icon 
+								className={classes.createMobile}
+								path={mdiPlusCircle}
+								size={2}
+							/>
 						</Link>
 					</nav>
 					<div className={classes.palettes}>
