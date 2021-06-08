@@ -48,6 +48,7 @@ class PaletteMetaDataForm extends Component {
 			emoji: emoji.native
         };
         this.props.saveNewPalette(newColorPalette);
+        this.setState({ stage: "" })
     }
     
     render () {
