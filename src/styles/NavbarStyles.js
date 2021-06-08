@@ -6,7 +6,18 @@ const NavbarStyles = {
         alignItems: "center",
         justifyContent: "flex-start",
         height: "5vh",
-        width: "100%"
+        width: "100%",
+        "& span": {
+            fontSize: "0.92rem",
+            fontWeight: "600",
+            marginRight: "0.5rem",
+            [MediaQuery.down("xs")]: {
+                marginRight: "0.5rem"
+            },
+            [MediaQuery.down("cell")]: {
+                display: "none"
+            }
+        }
     },
     logo: {
         marginRight: "15px",
@@ -42,15 +53,30 @@ const NavbarStyles = {
 			boxShadow: "none",
 			width: "12px",
 			height: "12px",
-			top: "8px",
+			top: "8px"
+		},
+        [MediaQuery.down("md")]: {
+			width: "300px"
+		},
+        [MediaQuery.down("sm")]: {
+			width: "140px"
 		},
         [MediaQuery.down("xs")]: {
-			width: "250px"
-		}
+			width: "120px"
+		},
+        [MediaQuery.down("cell")]: {
+            width: "100px",
+            marginLeft: "1rem"
+        }
     },
 	ColorFormatSelector: {
         marginRight: "1rem",
-        marginLeft: "auto"
+        marginLeft: "auto",
+    },
+    select: {
+        [MediaQuery.down("cell")]: {
+            fontSize: "0.75rem"
+        }
     }
 }
 

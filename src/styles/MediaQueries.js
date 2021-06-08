@@ -1,8 +1,8 @@
 const MediaQuery = {
     up(size) {
         const screen = {
-            cell: 375,
-            xs: 575.98,
+            cell: 380,
+            xs: 576.98,
             sm: 767.98,
             md: 991.98,
             lg: 1199.98,
@@ -12,8 +12,8 @@ const MediaQuery = {
     },
     down(size) {
         const screen = {
-            cell: 375,
-            xs: 575.98,
+            cell: 380,
+            xs: 576.98,
             sm: 767.98,
             md: 991.98,
             lg: 1199.98,

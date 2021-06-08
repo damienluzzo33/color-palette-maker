@@ -36,7 +36,7 @@ class Navbar extends Component {
 
 	render() {
 		const { changeSlider, sliderValue, allPaletteColors } = this.props;
-		const { Navbar, logo, navbarSlider, ColorFormatSelector } = this.props.classes;
+		const { Navbar, logo, navbarSlider, ColorFormatSelector, menuItem, select } = this.props.classes;
 		const { format, open } = this.state;
 
 		return (
@@ -55,10 +55,10 @@ class Navbar extends Component {
 					</div>
 				)}
 				<div className={ColorFormatSelector}>
-					<Select value={format} onChange={this.handleFormatChange}>
-						<MenuItem value="hex">HEX - #ffffff</MenuItem>
-						<MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>
-						<MenuItem value="rgba">RGBA - rgba(255,255,255,1.0)</MenuItem>
+					<Select className={select} value={format} onChange={this.handleFormatChange}>
+						<MenuItem className={menuItem} value="rgb">RGB - rgb(255,255,255)</MenuItem>
+						<MenuItem className={menuItem} value="rgba">RGBA - rgba(255,255,255,1.0)</MenuItem>
+						<MenuItem className={menuItem} value="hex">HEX - #ffffff</MenuItem>
 					</Select>
 				</div>
 				<Snackbar
