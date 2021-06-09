@@ -93,7 +93,7 @@ const AllColorPaletteStyles = {
             width: "98%"
         }
     },
-	palettes: {
+	allMiniPalettes: {
         boxSizing: "border-box",
         width: "100%",
         display: "grid",

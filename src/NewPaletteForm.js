@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
-import CreatePaletteNav from './CreatePaletteNav';
-import ChromeColorPickerForm from './ChromeColorPickerForm';
-import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import { Divider, Drawer, Button, Typography, IconButton } from '@material-ui/core/';
 import { mdiChevronLeftCircle } from '@mdi/js';
-import Icon from '@mdi/react';
-import DraggableColorList from './DraggableColorList';
-import NewPaletteFormStyles from './styles/NewPaletteFormStyles';
 import arrayMove from 'array-move';
+import Icon from '@mdi/react';
+import clsx from 'clsx';
+
+import ChromeColorPickerForm from './ChromeColorPickerForm';
+import DraggableColorList from './DraggableColorList';
+import CreatePaletteNav from './CreatePaletteNav';
+
+import NewPaletteFormStyles from './styles/NewPaletteFormStyles';
 
 class NewPaletteForm extends Component {
-	static defaultProps = {
-		maxColors: 20
-	}
+	static defaultProps = { maxColors: 20 }
     constructor(props) {
         super(props);
         this.state = {
             open: true,
             newColors: this.props.palettes[0].colors
         };
-        
+
         this.createNewColor = this.createNewColor.bind(this);
 		this.handleFormChange = this.handleFormChange.bind(this);
 		this.saveNewPalette = this.saveNewPalette.bind(this);
@@ -28,7 +28,7 @@ class NewPaletteForm extends Component {
 		this.onSortEnd = this.onSortEnd.bind(this);
 		this.clearPalette = this.clearPalette.bind(this);
 		this.addRandomColor = this.addRandomColor.bind(this);
-    }
+    };
 
 	handleDrawerOpen = () => {
 		this.setState({ open: true });
@@ -62,18 +62,16 @@ class NewPaletteForm extends Component {
 	};
 
 	deleteColor(colorName) {
-		this.setState({ newColors: this.state.newColors.filter(value => 
-			value.name !== colorName
-		)});
+		this.setState({ 
+			newColors: this.state.newColors.filter(value => value.name !== colorName)
+		});
 	};
 
 	addRandomColor() {
 		const allColors = this.props.palettes.map(p => p.colors).flat();
 		let randNum = Math.floor(Math.random() * allColors.length);
 		const randomColor = allColors[randNum];
-		this.setState({
-			newColors: [...this.state.newColors, randomColor]
-		});
+		this.setState({ newColors: [...this.state.newColors, randomColor] });
 	};
 
 	onSortEnd = ({oldIndex, newIndex}) => {
@@ -83,12 +81,13 @@ class NewPaletteForm extends Component {
 	};
 
 	render() {
-		const { classes, maxColors, palettes } = this.props;
+		const { maxColors, palettes } = this.props;
+		const { drawerMain, root, drawerPaper, drawerHeader, drawerContainer, drawerButtons, btn, content, contentShift } = this.props.classes;
 		const { open, newColors } = this.state;
 		const fullPalette = newColors.length >= maxColors;
 
 		return (
-			<div className={classes.root}>
+			<div className={root}>
 				<CreatePaletteNav 
 					open={open} 
 					palettes={palettes}
@@ -96,15 +95,13 @@ class NewPaletteForm extends Component {
 					handleDrawerOpen={this.handleDrawerOpen}
 				/>
 				<Drawer
-					className={classes.drawer}
+					className={drawerMain}
 					variant="persistent"
 					anchor="left"
 					open={open}
-					classes={{
-						paper: classes.drawerPaper
-					}}
+					classes={{ paper: drawerPaper }}
 				>
-					<div className={classes.drawerHeader}>
+					<div className={drawerHeader}>
 						<IconButton onClick={this.handleDrawerClose}>
 							<Icon 
 								path={mdiChevronLeftCircle}
@@ -113,16 +110,16 @@ class NewPaletteForm extends Component {
 						</IconButton>
 					</div>
                     <Divider />
-					<div className={classes.drawerContainer}>
+					<div className={drawerContainer}>
 						<Typography variant="h4" gutterBottom>
 							Design Your Palette
 						</Typography>
-						<div className={classes.drawerButtons}>
+						<div className={drawerButtons}>
 							<Button 
 								variant="contained" 
 								color="secondary"
 								onClick={this.clearPalette}
-								className={classes.btn}
+								className={btn}
 							>
 								Clear Palette
 							</Button>
@@ -131,7 +128,7 @@ class NewPaletteForm extends Component {
 								color="primary"
 								onClick={this.addRandomColor}
 								disabled={fullPalette}
-								className={classes.btn}
+								className={btn}
 							>
 								Random Color
 							</Button>
@@ -143,12 +140,8 @@ class NewPaletteForm extends Component {
 						/>
 					</div>
 				</Drawer>
-				<main
-					className={clsx(classes.content, {
-						[classes.contentShift]: open
-					})}
-				>
-					<div className={classes.drawerHeader} />
+				<main className={ clsx(content, { [contentShift]: open }) } >
+					<div className={drawerHeader} />
                     <DraggableColorList 
 						newColors={newColors}
 						deleteColor={this.deleteColor}

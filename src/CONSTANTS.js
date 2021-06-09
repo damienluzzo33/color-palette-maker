@@ -1,3 +1,5 @@
-const DRAWER_WIDTH = 400;
+const DRAWER_WIDTH = 350;
 
-export { DRAWER_WIDTH };
+const MOBILE_DRAWER_WIDTH = "100vw";
+
+export { DRAWER_WIDTH, MOBILE_DRAWER_WIDTH };

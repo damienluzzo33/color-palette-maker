@@ -6,7 +6,7 @@ const NewPaletteFormStyles = (theme) => ({
 	root: {
 		display: 'flex'
 	},
-	drawer: {
+	drawerMain: {
 		width: drawerWidth,
 		flexShrink: 0
 	},

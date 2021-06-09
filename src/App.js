@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { generateColorPalette } from './chromaColorHelpers';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+
 import ColorPalette from './ColorPalette';
-import seedColors from './SEED_COLORS';
 import AllColorPalettes from './AllColorPalettes';
 import SingleColorPalette from './SingleColorPalette';
 import NewPaletteForm from './NewPaletteForm';
 import Page from './Page';
+
+import seedColors from './SEED_COLORS';
+import { generateColorPalette } from './chromaColorHelpers';
 
 class App extends Component {
 	constructor(props) {
@@ -24,21 +26,11 @@ class App extends Component {
 	}
 
 	deletePalette(id) {
-		this.setState(
-			(st) => ({
-				palettes: st.palettes.filter((p) => p.id !== id)
-			}),
-			this.syncLocalStorage
-		);
+		this.setState((st) => ({palettes: st.palettes.filter((p) => p.id !== id)}), this.syncLocalStorage);
 	}
 
 	savePalette(newPalette) {
-		this.setState(
-			{
-				palettes: [ ...this.state.palettes, newPalette ]
-			},
-			this.syncLocalStorage
-		);
+		this.setState({palettes: [ ...this.state.palettes, newPalette ]}, this.syncLocalStorage);
 	}
 
 	syncLocalStorage() {

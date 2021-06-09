@@ -11,14 +11,14 @@ const MiniPaletteStyles = {
             opacity: "1"
         }
     },
-    colors: {
+    miniColors: {
         backgroundColor: "white",
         height: "150px",
         width: "100%",
         borderRadius: "5px",
         overflow: "hidden"
     },
-    title: {
+    paletteTitle: {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -28,7 +28,7 @@ const MiniPaletteStyles = {
         fontSize: "1rem",
         position: "relative"
     },
-    emoji: {
+    paletteEmoji: {
         marginLeft: "0.5rem",
         fontSize: "1.5rem"
     },

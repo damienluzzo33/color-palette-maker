@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { withStyles } from '@material-ui/styles';
 import { Link } from 'react-router-dom';
-import MiniPalette from './MiniPalettePreview';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemText from '@material-ui/core/ListItemText';
-import CheckIcon from "@material-ui/icons/Check"
-import CloseIcon from "@material-ui/icons/Close"
-import Avatar from '@material-ui/core/Avatar';
-import blue from "@material-ui/core/colors/blue"
-import red from "@material-ui/core/colors/red"
-import Icon from '@mdi/react';
+import { withStyles } from '@material-ui/styles';
+import { Dialog, DialogTitle, Avatar } from '@material-ui/core';
+import { List, ListItem, ListItemAvatar, ListItemText } from "@material-ui/core"
+import { Check as CheckIcon, Close as CloseIcon } from "@material-ui/icons";
+import { blue, red } from "@material-ui/core/colors"
 import { mdiPlusCircle } from '@mdi/js';
+import Icon from '@mdi/react';
+
+import MiniPalette from './MiniPalettePreview';
+
 import AllColorPaletteStyles from './styles/AllColorPaletteStyles';
 
 class AllColorPalettes extends Component {
@@ -54,25 +50,24 @@ class AllColorPalettes extends Component {
 	};
     
 	render() {
-		const { palettes, classes, deletePalette } = this.props;
-		const { openDeleteDialog, deletingId } = this.state;
+		const { root, nav, container, title, createReg, createMobile, allMiniPalettes} = this.props.classes;
+		const { palettes } = this.props;
+		const { openDeleteDialog } = this.state;
 		return (
-			<div className={classes.root}>
-				<div className={classes.container}>
-					<nav className={classes.nav}>
-						<h1 className={classes.title}>ReactColorPicker</h1>
+			<div className={root}>
+				<div className={container}>
+					<nav className={nav}>
+						<h1 className={title}>ReactColorPicker</h1>
 						<Link to="/palette/new">
-							<span className={classes.createReg}>
-								Create Palette
-							</span>
+							<span className={createReg}>Create Palette</span>
 							<Icon 
-								className={classes.createMobile}
+								className={createMobile}
 								path={mdiPlusCircle}
 								size={2}
 							/>
 						</Link>
 					</nav>
-					<TransitionGroup className={classes.palettes}>
+					<TransitionGroup className={allMiniPalettes}>
                         {palettes.map((p) => 
 							<CSSTransition
 								key={p.id}
@@ -94,52 +89,31 @@ class AllColorPalettes extends Component {
 					aria-labelledby="delete-dialog-title"
 					onClose={this.closeDialog}
 				>
-					<DialogTitle
-						id="delete-dialog-title"
-					>
-						Delete Color Palette?</DialogTitle>
+					<DialogTitle id="delete-dialog-title">
+						Delete Color Palette?
+					</DialogTitle>
 					<List>
-						<ListItem 
-							button
-							onClick={this.handleDelete}
-						>
+						<ListItem button onClick={this.handleDelete}>
 							<ListItemAvatar>
-								<Avatar
-									style={{
-										backgroundColor: blue[100],
-										color: blue[600]
-									}}
-								>
+								<Avatar style={{ backgroundColor: blue[100], color: blue[600] }}>
 									<CheckIcon />
 								</Avatar>
 							</ListItemAvatar>
-							<ListItemText>
-								Delete
-							</ListItemText>
+							<ListItemText>Delete</ListItemText>
 						</ListItem>
-						<ListItem 
-							button
-							onClick={this.closeDialog}
-						>
+						<ListItem button onClick={this.closeDialog}>
 							<ListItemAvatar>
-								<Avatar
-									style={{
-										backgroundColor: red[100],
-										color: red[600]
-									}}
-								>
+								<Avatar style={{ backgroundColor: red[100], color: red[600] }}>
 									<CloseIcon />
 								</Avatar>
 							</ListItemAvatar>
-							<ListItemText>
-								Cancel
-							</ListItemText>
+							<ListItemText>Cancel</ListItemText>
 						</ListItem>
 					</List>
 				</Dialog>
 			</div>
 		);
-	}
+	};
 }
 
 export default withStyles(AllColorPaletteStyles)(AllColorPalettes);

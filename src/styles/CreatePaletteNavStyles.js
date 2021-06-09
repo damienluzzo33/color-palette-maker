@@ -13,7 +13,10 @@ const CreatePaletteNavStyles = (theme) => ({
 		}),
 		flexDirection: "row",
 		justifyContent: "space-between",
-		alignItems: "center"
+		alignItems: "center",
+		[MediaQuery.down("xs")]: {
+			justifyContent: "center"
+		}
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -45,9 +48,15 @@ const CreatePaletteNavStyles = (theme) => ({
 	},
 	btns: {
 		margin: "0 0.5rem",
+		flexDirection: "row",
 		[MediaQuery.down("xs")]: {
 			padding: "0.25rem",
 			margin: "0 0.25rem"
+		}
+	},
+	title: {
+		[MediaQuery.down("xs")]: {
+			display: "none"
 		}
 	}
 });

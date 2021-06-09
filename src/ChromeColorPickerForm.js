@@ -3,6 +3,7 @@ import { Button } from '@material-ui/core/';
 import { withStyles } from '@material-ui/core/styles';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import { ChromePicker } from 'react-color';
+
 import ChromeColorPickerStyles from './styles/ChromeColorPickerStyles';
 
 class ChromeColorPickerForm extends Component {
@@ -44,9 +45,7 @@ class ChromeColorPickerForm extends Component {
 			name: this.state.newColorName
 		};
         this.props.createNewColor(newColor);
-        this.setState({
-            newColorName: ""
-        })
+        this.setState({ newColorName: "" })
     };
 
     render() {

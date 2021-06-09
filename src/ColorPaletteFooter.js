@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
+
 import FooterStyles from './styles/FooterStyles';
 
 function ColorPaletteFooter(props) {
