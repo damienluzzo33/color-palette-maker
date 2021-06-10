@@ -10,6 +10,7 @@ import Page from './Page';
 
 import seedColors from './SEED_COLORS';
 import { generateColorPalette } from './chromaColorHelpers';
+import PageNotFound from './404Error';
 
 class App extends Component {
 	constructor(props) {
@@ -102,13 +103,22 @@ class App extends Component {
 										</Page>
 									)}
 								/>
+								<Route
+									render={(routeProps) => (
+										<Page>
+											<PageNotFound 
+												{...routeProps}
+											/>
+										</Page>
+									)}
+								/>
 							</Switch>
 						</CSSTransition>
 					</TransitionGroup>
 				)}
 			/>
 		);
-	}
+	};
 }
 
 export default App;
