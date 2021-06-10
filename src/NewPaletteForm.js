@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import ChromeColorPickerForm from './ChromeColorPickerForm';
 import DraggableColorList from './DraggableColorList';
 import CreatePaletteNav from './CreatePaletteNav';
+import seedColors from './SEED_COLORS';
 
 import NewPaletteFormStyles from './styles/NewPaletteFormStyles';
 
@@ -18,7 +19,7 @@ class NewPaletteForm extends Component {
         super(props);
         this.state = {
             open: true,
-            newColors: this.props.palettes[0].colors
+            newColors: seedColors[0].colors
         };
 
         this.createNewColor = this.createNewColor.bind(this);

@@ -9,7 +9,7 @@ const ChromeColorPickerStyles = {
     addColorBtn: {
         width: "100%",
         padding: "1rem",
-        marginTop: "1rem",
+        marginTop: "3rem",
         fontSize: "1.5rem"
     },
     textInput: {
