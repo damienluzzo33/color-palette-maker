@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# Color Palette Maker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The color-picker to rule them all.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+[Deployed Application]()
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can use this color palette application to create your own color palette to use in your projects. You can also choose from several existing themes included in the app!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Note: This app was build with HTML, CSS, Javascript, and React.js
 
-### `npm test`
+[Link to video demo of app]()
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Giphy demo of project]()
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Table of Contents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Features](#features)
+- [Examples/Tests](#examples)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- While this application is already hosted and running on Netlify, you can alternatively clone this repository down to your local machine.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Usage
 
-## Learn More
+- To user the app, simply click the link to the deployed application at the top of the README.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- If you chose to clone down the repository, to install the app and run it locally, you will need to open up your command line at the root level of the repository.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Next, you'll need to install the node packages necessary for this application by running "npm i"
 
-### Code Splitting
+- Finally, all you have to do is navigate to http://localhost:3000/ and use the Color Picker!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Screenshots:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Desktop:
 
-### Making a Progressive Web App
+![Desktop view of application]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Mobile:
 
-### Advanced Configuration
+![Mobile view of application]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Credits
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Assets:
 
-### `npm run build` fails to minify
++ [React]()
++ [Node]()
++ [React Router]()
++ [MUI]()
++ [chroma-js]()
++ [emoji-mart]()
++ [react-transition-group]()
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Features
+
++ Users can choose from any of the 9 provided default color palettes
++ Users can create/update their own color palette using the color picking tool
++ Users can save color palettes and provide unique names to colors they choose
++ Users can personalize their palettes with a name and emoji
++ User data is stored in local storage
+
+
+## License
+
++ MIT
+
+
+## Ideas For Future Development
+
+
+
+## How To Contribute
+
++ Have additional ideas for improving this site? Please first discuss the change you wish to make via email with the owners of this repository. Email addresses can be found on the contributor's gitHub pages (links above).
