@@ -1,6 +1,7 @@
 import { MediaQuery } from './MediaQueries';
 // import svgBackground from './svgBackground.svg';
 import diagonal_stripes from './SVGBGS/diagnal_stripes.svg';
+import white_pixels from './SVGBGS/white_pixels.svg';
 
 const AllColorPaletteStyles = {
     "@global": {
@@ -19,7 +20,7 @@ const AllColorPaletteStyles = {
         justifyContent: "center",
         backgroundColor: "#1173cb",
         /* background by SVGBackgrounds.com */
-        backgroundImage: `url(${diagonal_stripes})`,
+        backgroundImage: `url(${white_pixels})`,
         // backgroundAttachment: "local, scroll",
         backgroundSize: "cover",
         overflow: "scroll"
@@ -71,7 +72,7 @@ const AllColorPaletteStyles = {
                 padding: "0",
                 border: "none",
                 background: "none",
-                color: "#17135d"
+                color: "white"
             },
             "& span": {
                 [MediaQuery.down("xs")]: {
