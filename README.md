@@ -7,13 +7,14 @@ The color-picker to rule them all.
 
 [Deployed Application]()
 
-You can use this color palette application to create your own color palette to use in your projects. You can also choose from several existing themes included in the app!
+You can use this color palette application to create your own color palette to use in your projects. You can also choose from several existing themes included in the app! Soon, you'll be able to share your pallettes with the rest of the community and view public pallettes submitted by others. The best has yet to come, including the ability to save your pallettes securely in our database. Enjoy the preview and please provide feedback!
 
-Note: This app was build with HTML, CSS, Javascript, and React.js
+Note: This app was build with HTML, CSS, JSS, Javascript, and React.js.
 
-[Link to video demo of app]()
+[Link to video demo of app](https://drive.google.com/file/d/1hgFtjyYaF5Kyj0zcbL1m4hqeDo-E-y8L/view?usp=sharing)
 
-![Giphy demo of project]()
+
+![Giphy demo of project](./public/ReactApp.gif)
 
 
 ## Table of Contents
@@ -48,11 +49,13 @@ Note: This app was build with HTML, CSS, Javascript, and React.js
 
 ### Desktop:
 
-![Desktop view of application]()
+![Desktop view of home page](./public/screenshot_desktop_1.png)
+![Desktop view of color pallette creation](./public/screenshot_desktop_2.png)
 
 ### Mobile:
 
-![Mobile view of application]()
+![Mobile view of home page](./public/screenshot_mobile_1.png)
+![Mobile view of color pallette creation](./public/screenshot_mobile_2.png)
 
 
 ## Credits
@@ -84,8 +87,15 @@ Assets:
 
 ## Ideas For Future Development
 
++ implement a backend that stores user pallettes in a MongoDB database instead of local storage
+
++ create a log-in and log-out feature 
+
++ allow users to store their own collections while being able to browse public pallettes submitted by other users
+
++ incorporate next.js
 
 
 ## How To Contribute
 
-+ Have additional ideas for improving this site? Please first discuss the change you wish to make via email with the owners of this repository. Email addresses can be found on the contributor's gitHub pages (links above).
++ Have additional ideas for improving this site? Please first discuss the change you wish to make via email with the owner of this repository. Email address can be found on the author's gitHub page.
