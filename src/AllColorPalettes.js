@@ -57,7 +57,7 @@ class AllColorPalettes extends Component {
 			<div className={root}>
 				<div className={container}>
 					<nav className={nav}>
-						<h1 className={title}>ReactColorPicker</h1>
+						<h1 className={title}>ColorPalletteMaker</h1>
 						<Link to="/palette/new">
 							<span className={createReg}>Create Palette</span>
 							<Icon 

@@ -1,9 +1,9 @@
 const MiniPaletteStyles = {
 	root: {
-        backgroundColor: "white",
-        border: "1px solid black",
+        backgroundColor: "#181b1c",
+        border: "0px solid black",
         borderRadius: "5px",
-        padding: "0.5rem",
+        // padding: "0.5rem",
         position: "relative",
         overflow: "hidden",
         cursor: "pointer",
@@ -12,7 +12,7 @@ const MiniPaletteStyles = {
         }
     },
     miniColors: {
-        backgroundColor: "white",
+        backgroundColor: "#181b1c",
         height: "150px",
         width: "100%",
         borderRadius: "5px",
@@ -23,14 +23,18 @@ const MiniPaletteStyles = {
         justifyContent: "space-between",
         alignItems: "center",
         margin: "0",
-        color: "black",
+        paddingLeft: "0.5rem",
         paddingTop: "0.5rem",
-        fontSize: "1rem",
-        position: "relative"
+        fontSize: "1.1rem",
+        position: "relative",
+        backgroundColor: "#181b1c",
+        color: "white"
     },
     paletteEmoji: {
         marginLeft: "0.5rem",
-        fontSize: "1.5rem"
+        fontSize: "1.5rem",
+        paddingRight: "0.5rem",
+        paddingBottom: "0.25rem"
     },
     miniBox: {
         height: "25%",

@@ -1,5 +1,6 @@
 import { MediaQuery } from './MediaQueries';
-import svgBackground from './svgBackground.svg';
+// import svgBackground from './svgBackground.svg';
+import diagonal_stripes from './SVGBGS/diagnal_stripes.svg';
 
 const AllColorPaletteStyles = {
     "@global": {
@@ -18,7 +19,7 @@ const AllColorPaletteStyles = {
         justifyContent: "center",
         backgroundColor: "#1173cb",
         /* background by SVGBackgrounds.com */
-        backgroundImage: `url(${svgBackground})`,
+        backgroundImage: `url(${diagonal_stripes})`,
         // backgroundAttachment: "local, scroll",
         backgroundSize: "cover",
         overflow: "scroll"
@@ -58,19 +59,19 @@ const AllColorPaletteStyles = {
         alignItems: "center",
         color: "white",
         "& a": {
-            color: "#1173cb",
+            color: "white",
             textDecoration: "none",
             border: "1px solid white",
             padding: "0.25rem 0.75rem",
             borderRadius: "15px",
-            background: "white",
+            background: "#16264f",
             fontWeight: "bold",
             paddingBottom: "6px",
             [MediaQuery.down("xs")]: {
                 padding: "0",
                 border: "none",
                 background: "none",
-                color: "white"
+                color: "#17135d"
             },
             "& span": {
                 [MediaQuery.down("xs")]: {
@@ -118,7 +119,9 @@ const AllColorPaletteStyles = {
         }
     },
     title: {
-        fontSize: "2rem",
+        fontSize: "2.25rem",
+        color: "white",
+        textShadow: "2px 2px 2px #16264f",
         [MediaQuery.down("cell")]: {
             fontSize: "1.75rem"
         }
